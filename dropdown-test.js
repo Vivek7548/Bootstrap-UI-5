@@ -28,14 +28,60 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, running dropdown tests...');
     testDropdownSubmenus();
     
-    // Add test click handler to each submenu toggle
-    document.querySelectorAll('.dropdown-submenu .dropdown-toggle').forEach((toggle, index) => {
-        console.log(`Adding test click handler to submenu toggle ${index + 1}`);
+    // Handle nested dropdowns
+    const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
+    
+    dropdownSubmenus.forEach(function(submenu) {
+        const toggle = submenu.querySelector('.dropdown-toggle');
+        const menu = submenu.querySelector('.dropdown-menu');
         
-        toggle.addEventListener('click', function(e) {
-            console.log(`Clicked on submenu toggle: ${this.textContent.trim()}`);
-            console.log(`  - Next element has show class: ${this.nextElementSibling?.classList.contains('show')}`);
-            console.log(`  - aria-expanded attribute: ${this.getAttribute('aria-expanded')}`);
+        if (toggle && menu) {
+            // Add click event to toggle dropdown
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Close other open submenus
+                dropdownSubmenus.forEach(function(otherSubmenu) {
+                    if (otherSubmenu !== submenu) {
+                        const otherMenu = otherSubmenu.querySelector('.dropdown-menu');
+                        const otherToggle = otherSubmenu.querySelector('.dropdown-toggle');
+                        if (otherMenu && otherMenu.classList.contains('show')) {
+                            otherMenu.classList.remove('show');
+                            otherToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+                
+                // Toggle the show class on the submenu
+                menu.classList.toggle('show');
+                
+                // Set aria-expanded attribute for accessibility
+                toggle.setAttribute('aria-expanded', menu.classList.contains('show'));
+            });
+        }
+    });
+    
+    // Close all submenus when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown-submenu')) {
+            dropdownSubmenus.forEach(function(submenu) {
+                const menu = submenu.querySelector('.dropdown-menu');
+                const toggle = submenu.querySelector('.dropdown-toggle');
+                if (menu && menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    });
+    
+    // Prevent main dropdown from closing when clicking on submenu items
+    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+        menu.addEventListener('click', function(e) {
+            if (e.target.closest('.dropdown-item') && !e.target.closest('.dropdown-toggle')) {
+                e.stopPropagation();
+            }
         });
     });
 });
