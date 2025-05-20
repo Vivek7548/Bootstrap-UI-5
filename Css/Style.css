@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #4e54c8, #8f94fb);
+    padding: 10px !important;
+}
+
+.navbar-brand img {
+    height: 40px;
+    padding-left: 20px;
+}
+
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+.navbar-nav li a {
+    color: white !important;
+    font-weight: 600;
+    text-align: center;
+}
+
+.fa-bars {
+    color: white !important;
+}
+
+.navbar-toggler {
+    outline: none !important;
+}
+
+
+/* banner section */
+
+#banner {
+    background-image: linear-gradient(to right, #4e54c8, #8f94fb);
+    color: #fff;
+    padding-top: 5%;
+    /* padding-bottom: 5%; */
+}
+
+.promo-title {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+.play-btn {
+    width: 45px;
+    margin: 20px;
+}
+
+#banner a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+#banner a:hover {
+    transform: scale(1.05);
+}
+
+#banner a img.play-btn {
+    width: 45px;
+    margin-right: 10px;
+    /* Adjust spacing between image and text */
+    transition: transform 0.3s ease;
+}
+
+#banner a:hover img.play-btn {
+    transform: scale(1.1);
+}
+
+.bottom-img {
+    width: 100%;
+    background-repeat: no-repeat;
+    margin-top: 100px;
+}
+
+#banner .col-md-6 img {
+    /* Styles for the home2.png image */
+    transition: transform 0.5s ease-in-out;
+    animation: pulse-glow 1.5s infinite alternate;
+    /* Apply animation always */
+}
+
+#banner .col-md-6 img:hover {
+    /* Remove hover styles if only animation is desired always */
+    /* Keeping transform for potential subtle hover if still wanted */
+    transform: scale(1.03);
+    /* Remove animation from hover */
+    /* animation: none; */
+}
+
+@keyframes pulse-glow {
+    from {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    }
+    to {
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1));
+    }
+}
+
+
+/* services section */
+
+#services {
+    padding: 80px 0;
+}
+
+.service-img {
+    width: 100px;
+    margin-top: 20px;
+}
+
+.services {
+    padding: 20px;
+}
+
+.services h4 {
+    padding: 5px;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+.title {
+    position: relative;
+    display: inline-block;
+    margin: 80px auto;
+    text-align: center;
+}
+
+
+/* Long bottom line */
+
+.title::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 5px;
+    background: #7b1798;
+    z-index: 1;
+}
+
+
+/* Short center block overlapping the long line */
+
+.title::after {
+    content: "";
+    position: absolute;
+    bottom: -22px;
+    /* slightly lower to overlap nicely */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 10px;
+    background: #7b1798;
+    z-index: 2;
+}
+
+#services .btn-primary {
+    box-shadow: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+    border: none;
+    background: #7b1798;
+    background-image: linear-gradient(to right, #4e54c8, #8f94fb);
+    transition: background-image 0.5s ease;
+}
+
+#services .btn-primary:hover {
+    background-image: linear-gradient(to left, #4e54c8, #8f94fb);
+}
+
+
+/* about us */
+
+#about-us {
+    background: #f8f9fa;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.about-title {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 8%;
+}
+
+#about-us ul li {
+    margin: 10px 0;
+}
+
+#about-us ul li {
+    margin-left: 20px;
+}
+
+.testimonials {
+    border-left: 4px solid #7b1798;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.testimonials img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.user-details {
+    display: inline-block;
+    font-size: 12x;
+}
+
+
+/* social media section */
+
+#social-media {
+    background: #f8f9fa;
+    padding: 100px 0;
+}
+
+#social-media p {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.social-icons img {
+    width: 60px;
+    transition: 0.5s;
+}
+
+.social-icons a:hover img {
+    transform: translateY(-10px);
+}
+
+
+/* footer section */
+
+#footer {
+    color: #fff;
+    background-image: linear-gradient(to right, #4e54c8, #8f94fb);
+}
+
+#footer-img {
+    width: 100%;
+}
+
+.footer-box {
+    padding: 20px;
+}
+
+.footer-box img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.footer-box .fa {
+    margin-right: 8px;
+    font-size: 25px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 2px;
+    background-image: linear-gradient(to right, #4e54c8, #8f94fb);
+}
+
+.footer-box .form-control {
+    border-radius: 0;
+    border: none;
+    box-shadow: none !important;
+    margin-top: 25px;
+    max-width: 250px;
+}
+
+.footer-box .btn-primary {
+    box-shadow: none !important;
+    border-radius: 0;
+    border: none;
+    margin-top: 30px;
+    background-image: linear-gradient(to right, #4e54c8, #8f94fb);
+    transition: background-image 0.5s ease;
+}
+
+.footer-box .btn-primary:hover {
+    background-image: linear-gradient(to left, #4e54c8, #8f94fb);
+}
+
+hr {
+    background-color: white;
+}
+
+.Copyright {
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
+.nav-link.active,
+.nav-link:active,
+.nav-link:focus {
+    font-weight: bold;
+    border-bottom: 1px solid #7b1798;
+    color: #7b1798 !important;
+}
+
+
+/* Dropdown Menu Styles */
+
+.dropdown-menu {
+    background: rgba(227, 215, 215, 0.95);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    color: black;
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block !important;
+}
+
+
+/* Styles for dropdown submenu */
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+    display: none;
+}
+
+.dropdown-submenu .dropdown-menu.show {
+    display: block !important;
+}
+
+.dropdown-submenu .dropdown-item {
+    padding-right: 30px;
+    /* Make room for the caret */
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-toggle {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-item,
+.dropdown-submenu .dropdown-item,
+.dropdown-submenu .dropdown-toggle {
+    color: #000 !important;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-submenu .dropdown-item:hover,
+.dropdown-submenu .dropdown-toggle:hover {
+    color: #000 !important;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-item:visited,
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: #000 !important;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(45deg, #7b00ff, #ae00ff);
+    transform: translateX(5px);
+}
+
+@media (max-width: 991.98px) {
+    .dropdown-menu {
+        background: transparent;
+        box-shadow: none;
+        padding-left: 1rem;
+        position: static !important;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        display: none;
+    }
+    .dropdown-menu.show {
+        display: block !important;
+    }
+    .dropdown-submenu .dropdown-menu {
+        left: 0;
+        margin-left: 1rem;
+        display: none;
+    }
+    .dropdown-submenu .dropdown-menu.show {
+        display: block !important;
+    }
+    .dropdown-item {
+        color: #000 !important;
+        /* Force black text on mobile too */
+        padding: 0.5rem 1rem;
+    }
+    .dropdown-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: none;
+        color: #000 !important;
+        /* Keep black on hover */
+    }
+    /* Ensure dropdown toggles are visible and clickable on mobile */
+    .dropdown-toggle::after {
+        float: right;
+        margin-top: 8px;
+    }
+    /* Adjust submenu toggle position on mobile */
+    .dropdown-submenu .dropdown-toggle::after {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-top: 0;
+        float: right;
+        transform: rotate(90deg);
+    }
+    /* Rotate submenu caret when open on mobile */
+    .dropdown-submenu .dropdown-menu.show+.dropdown-toggle::after,
+    .dropdown-submenu .dropdown-toggle[aria-expanded="true"]::after {
+        transform: rotate(270deg);
+    }
+}
+
+
+/* Ensure dropdown toggle text remains black */
+
+.dropdown-toggle {
+    color: #000 !important;
+    /* Set black text */
+    font-weight: 500;
+    /* Optional: make it slightly bold */
+    cursor: pointer;
+}
+
+
+/* Style for dropdown toggles */
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transition: transform 0.2s ease-in-out;
+}
+
+
+/* Rotate caret when dropdown is open */
+
+.dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+
+/* For submenu toggles, use a different caret pointing right */
+
+.dropdown-submenu .dropdown-toggle::after {
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -0.15em;
+}
+
+
+/* Rotate submenu caret when open */
+
+.dropdown-submenu .dropdown-menu.show+.dropdown-toggle::after,
+.dropdown-submenu .dropdown-toggle:focus::after {
+    transform: rotate(0deg);
+}
+
+
+/* Optional: Keep it black when hovered/focused/active */
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle:active {
+    color: #000 !important;
+}
