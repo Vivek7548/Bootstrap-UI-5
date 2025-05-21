@@ -492,7 +492,7 @@ hr {
 }
 
 .dropdown-toggle::after {
-    content: '';
+    content: "";
     display: inline-block;
     margin-left: 0.5rem;
     vertical-align: middle;
