@@ -28,6 +28,43 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, running dropdown tests...');
     testDropdownSubmenus();
     
+    // Handle active navbar links
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    function setActiveLink() {
+        const scrollPosition = window.scrollY;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    // Set active link on scroll
+    window.addEventListener('scroll', setActiveLink);
+
+    // Set active link on click
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Only handle links that point to sections
+            if (this.getAttribute('href').startsWith('#')) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+
     // Handle nested dropdowns
     const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
     

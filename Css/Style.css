@@ -323,9 +323,9 @@ hr {
 .nav-link.active,
 .nav-link:active,
 .nav-link:focus {
+    color: #000 !important;
     font-weight: bold;
     border-bottom: 1px solid #7b1798;
-    color: #7b1798 !important;
 }
 
 
