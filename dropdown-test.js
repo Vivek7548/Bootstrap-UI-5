@@ -28,6 +28,20 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, running dropdown tests...');
     testDropdownSubmenus();
     
+    // Close navbar when clicking outside on mobile
+    document.addEventListener('click', function(event) {
+        const navbarCollapse = document.getElementById('navbarSupportedContent');
+        const toggler = document.querySelector('.navbar-toggler');
+
+        // Check if the navbar is currently open and the click is outside
+        if (navbarCollapse && toggler && navbarCollapse.classList.contains('show') &&
+            !navbarCollapse.contains(event.target) &&
+            !toggler.contains(event.target)) {
+            
+            toggler.click(); // Simulate a click on the toggler to close the navbar
+        }
+    });
+
     // Handle active navbar links
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     const sections = document.querySelectorAll('section[id]');
